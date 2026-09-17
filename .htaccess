@@ -1,0 +1,11 @@
+Options -Indexes
+DirectoryIndex index.html
+
+RewriteEngine On
+# Redirect bookmarked page URLs; contact.php stays a backend endpoint.
+RewriteCond %{REQUEST_METHOD} ^(?:GET|HEAD)$
+RewriteRule ^(index|about|services|process|cases|consult)\.php$ $1.html [R=301,L]
+
+<FilesMatch "^\.env">
+    Require all denied
+</FilesMatch>
